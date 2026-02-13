@@ -16,6 +16,8 @@ Flight::before('start', function() {
 // Routes
 Flight::route('GET /', 'HomeController::index');
 Flight::route('GET /ping', 'HomeController::ping');
+Flight::route('GET /dashboard', 'HomeController::dashboard');
+
 Flight::route('POST /register', 'AuthController::register');
 Flight::route('POST /login', 'AuthController::login');
 

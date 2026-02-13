@@ -11,7 +11,9 @@ define('DB_PASS', '');
 
 /**
  * Connexion à la base de données
+ * 
  */
+
 function getDatabase() {
     static $pdo = null;
     
@@ -20,8 +22,10 @@ function getDatabase() {
         $database = DB_NAME;
         $user = DB_USER;
         $pass = DB_PASS;
+        $port="5432";
         $charset = 'utf8mb4';
         $dsn = "mysql:host={$host};dbname={$database};charset={$charset}";
+        //$dsn = "pgsql:host={$host};port={$port};dbname={$database};user={$user};password={$pass}";
 
         $options = [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
