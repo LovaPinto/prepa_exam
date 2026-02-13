@@ -8,6 +8,14 @@ class User {
     public function __construct() {
         $this->pdo = getDatabase();
     }
+    public function testConnection(){
+        $t=null;
+        if(isset($this->pdo)){
+            $t= ['success' => true, 'message' => 'connection reussi'];
+        }else{
+            $t= ['success' => false, 'message' => 'connection echoue'];
+        } return $t;
+    }
     
     /**
      * Créer un nouvel utilisateur
