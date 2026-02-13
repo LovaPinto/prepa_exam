@@ -5,9 +5,9 @@
 
 // Configuration DB
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'prepa_exam');
-define('DB_USER', 'lovapinto');
-define('DB_PASS', 'lovapinto');
+define('DB_NAME', 'takalo_db');
+define('DB_USER', 'root');
+define('DB_PASS', '');
 
 /**
  * Connexion à la base de données
