@@ -34,6 +34,8 @@ INSERT INTO photos (id_objet, url_photo) VALUES
 (2, 'uploads/veste.jpg'),
 (3, 'uploads/php-avance.jpg'),
 (4, 'uploads/table.jpg');
+
+
 CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(100),
@@ -63,6 +65,7 @@ CREATE TABLE objets (
     id INT PRIMARY KEY AUTO_INCREMENT,
     titre VARCHAR(200),
     description TEXT,
+    marge DECIMAL(10,3),
     prix_estimatif DECIMAL(10,2),
     id_categorie INT,
     id_proprietaire INT,
@@ -84,6 +87,7 @@ CREATE TABLE propositions (
     id INT PRIMARY KEY AUTO_INCREMENT,
     id_objet_propose INT,
     id_objet_demande INT,
+    id_personne_demande INT,
     id_utilisateur_proposant INT,
     statut ENUM('en_attente', 'accepte', 'refuse') DEFAULT 'en_attente',
     date_proposition TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -91,6 +95,7 @@ CREATE TABLE propositions (
     FOREIGN KEY (id_objet_propose) REFERENCES objets(id),
     FOREIGN KEY (id_objet_demande) REFERENCES objets(id),
     FOREIGN KEY (id_utilisateur_proposant) REFERENCES users(id)
+    FOREIGN KEY (id_personne_demande) REFERENCES users(id)
 );
 
 -- Table historique
